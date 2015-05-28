@@ -1,0 +1,18 @@
+# Site settings
+title: diet4j - put Java JARs on a diet, and load maven modules as needed
+description: >
+  Java, JAR, WAR, EAR, maven, build, module
+baseurl: "" # the subpath of your site, e.g. /blog/
+url: "http://diet4j.org" # the base hostname & protocol for your site
+github_username:  diet4j
+
+permalink: /blog/:year/:month/:day/:title
+paginate: 10
+paginate_path: "blog/archive:num"
+
+# Build settings
+markdown: kramdown
+
+# From https://raw.githubusercontent.com/recurser/jekyll-plugins/master/generate_categories.rb
+category_dir:  tags
+category_title_prefix: 'Tag: '

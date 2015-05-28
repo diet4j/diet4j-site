@@ -1,0 +1,27 @@
+---
+# Only the main Sass file needs front matter (the dashes are enough)
+---
+@charset "utf-8";
+
+// Our variables
+$base-font-family:  Arial, sans-serif;
+$base-font-size:    16px;
+$fixed-font-family: Consolas,Menlo,Monaco,Lucida Console,Liberation Mono,DejaVu Sans Mono,Bitstream Vera Sans Mono,Courier New,monospace,serif;
+$fixed-font-size:   13px;
+// Same as stackoverflow
+$small-font-size:   $base-font-size * 0.75;
+$base-line-height:  1.5;
+$base-font-weight:  400;
+$width:             980px;
+$padding:           20px;
+$left-column-width: 180px;
+
+$text-color:        #111;
+$background-color:  #fffcf0;
+
+// Import partials from `sass_dir` (defaults to `_sass`)
+@import
+        "layout",
+        "candy",
+        "syntax-highlighting"
+;

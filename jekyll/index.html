@@ -1,0 +1,153 @@
+---
+layout: default
+isFrontPage: true
+---
+
+<div class="news">
+ <h2>Latest news:</h2>
+ <ul class="news-posts">
+{% assign counter = '0' %}
+{% for post in site.posts %}
+{% for cat in post.categories %}
+{% if cat == "hot" and counter < '3' %}
+    {% capture counter %}{{ counter | plus:'1' }}{% endcapture %}
+  <li>
+   <span class="news-title">
+    <a href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a>
+   </span>
+  </li>
+{% endif %}
+{% endfor %}
+{% endfor %}
+ </ul>
+</div>
+<div class="section">
+ <div class="section-left">
+  <h2>diet<span class="d4j">4j</span>, noun</h2>
+ </div>
+ <div class="section-right-first">
+  <ol style="padding-left: 20px">
+   <li>A principled plan to limit ingestion to only the right
+       <span class="s4j">foods</span> <span class="d4j">JARs</span> instead of living
+       a life of <span class="s4j">bloat</span> <span class="d4j">oversized,
+       include-the-kitchen-sink JARs and WARs.</span></li>
+   <li>An assembly of all the <span class="s4j">notables</span> <span class="d4j">modules</span>
+       needed (and no more) in a particular place and time to
+       <span class="s4j">make important decisions</span> <span class="d4j">run
+       a Java application.</span></li>
+ </div>
+</div>
+<div class="section">
+ <div class="section-left">
+  <h2>So what is diet4j?</h2>
+ </div>
+ <div class="section-right">
+  <p>diet4j lets you distribute your <a href="https://maven.apache.org/">Maven</a> modules
+     as you built them, and assembles them into a running executable (or web app) at
+     run-time without creating gigantic JARs. It currently works for command-line
+     applications, and Tomcat web applications.</p>
+ </div>
+</div>
+<div class="section">
+ <div class="section-left">
+  <h2>The old way:</h2>
+ </div>
+ <div class="section-right">
+  <pre style="margin-top:20px">java -classpath this.jar:and-this.jar:and-that.jar:and-i-forgot-something.jar:\
+     and-lets-bundle-this-too-just-in-case.jar:and-five-more-miles-of.jar</pre>
+  <p>or</o>
+  <pre>java -jar the-gazillion-megabytes-include-everything.jar</pre>
+ </div>
+</div>
+<div class="section">
+ <div class="section-left">
+  <h2>The diet4j way:</h2>
+ </div>
+ <div class="section-right">
+  <pre style="margin-top:20px">java -jar diet4j.jar my-maven-module</pre>
+  <p>where <code>my-maven-module</code> is the name of your top-level maven project.
+     Regardless how complicated its dependencies might be, diet4j will pull
+     in all dependent modules at run-time &mdash; just like
+     Maven does at compile time. And it
+     uses the pom that maven already packages with the JAR, so you have to do
+     basically nothing to get your code ready.</p>
+ </div>
+</div>
+<div class="section">
+ <div class="section-left">
+  <h2>Why is this a good idea?</h2>
+ </div>
+ <div class="section-right">
+  <p>Some people like gigantic JARs and long build times. If you don't, diet4j lets you:</p>
+  <ul>
+   <li>Ship and update a module used by several applications on the same server once, instead
+       of once per app. Lots of other programming languages do that (libc.so, anyone?),
+       why not Java?</li>
+   <li>Reduce incremental build/deploy times by just updating the JAR of the module that
+       was updated, not the entire application.</li>
+   <li>Dynamically load additional modules at run-time without taking the app down,
+       if you are so inclined. jdiet has an API for that.</li>
+   <li>Use a separate ClassLoader for each module. Helps with modularization, security,
+       and debugging.</li>
+   <li>It works with most existing maven modules without change!</li>
+  </ul>
+ </div>
+</div>
+<div class="section">
+ <div class="section-left">
+  <h2>How to get started</h2>
+ </div>
+ <div class="section-right">
+  <ul>
+   <li>Download diet4j.jar</li>
+   <li>
+    <p>Try out our demo apps:</p>
+    <pre>git clone https://github.com/diet4j/diet4j-examples
+cd diet4j-examples
+mvn install
+java -jar diet4j.jar diet4j-example-one gimme lots of jars</pre>
+   </li>
+  </ul>
+  <p>This is what happened:</p>
+  <ul>
+   <li>diet4j's main program started, and looked for maven module <code>diet4j-example-one</code>
+      in your maven repository.</li>
+   <li>After loading the JAR, diet4j examined its maven POM file, and noticed that this module
+       has a dependency: module <code>diet4j-example-utils</code>. So it loaded that, too.</li>
+   <li>diet4j created a <code>ClassLoader</code> for each, and connected them, so that the main module
+       can load the classes from the dependency (but not the other way around).</li>
+   <li>diet4j then looked for a <code>main()</code> method to run in the main module, and
+       found one in the <code>Main-Class</code> field of the top module's <code>MANFIEST.MF</code>,
+       just as if you had run the application with a kitchen-sink-JAR directly from the command-line.</li>
+   <li>diet4j passed the remaining arguments into that <code>main()</code> method.</li>
+  </ul>
+  <p>To learn more, we suggest you look at the
+     <a href="https://github.com/diet4j/diet4j-examples">code for the examples</a> on Github.</p>
+ </div>
+</div>
+<div class="section">
+ <div class="section-left">
+  <h2>What else can diet4j do?</h2>
+ </div>
+ <div class="section-right">
+  <ul>
+   <li>Find and load modules at run-time. That's great for apps that have plug-in's and
+       other add-on's that the user can add without needing to restart the app.</li>
+   <li>Activate and deactivate modules when they are loaded/unloaded. Try
+       <pre>java -jar diet4j.jar diet4j-examples-activate</pre></li>
+   <li>Do the same thing for Tomcat web apps. For that, you add diet4j-tomcat.jar
+       to your Tomcat <code>lib</code> directory, and add a little something to your
+       <code>context.xml</code> file. Of course, also stop Tomcat from building
+       gigantic wars.</li>
+  </ul>
+ </div>
+</div>
+<div class="section">
+ <div class="section-left">
+  <h2>License</h2>
+ </div>
+ <div class="section-right">
+  <p><a href="https://github.com/diet4j/diet4j/blob/master/LICENSE">Apache 2.0</a>, a liberal
+     open-source license.</p>
+ </div>
+</div>

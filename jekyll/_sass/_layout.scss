@@ -1,0 +1,106 @@
+* {
+    font-family: $base-font-family;
+}
+p, li {
+    font-size: $base-font-size;
+}
+pre {
+    font-family: $fixed-font-family;
+    font-size: $fixed-font-size;
+    margin: 5px 0;
+}
+code {
+    font-family: $fixed-font-family;
+    font-size: $fixed-font-size;
+}
+
+footer {
+    padding: $padding;
+}
+
+footer > p {
+    font-size: $small-font-size;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    background-image: url(/images/background.jpg);
+}
+
+body {
+    margin: 0 auto;
+    width: $width;
+    padding: 0 $padding;
+
+    font-size: $base-font-size;
+    line-height: $base-line-height;
+    font-weight: $base-font-weight;
+    color: $text-color;
+    -webkit-text-size-adjust: 100%;
+}
+
+h1 {
+    font-size: 2*$base-font-size;
+    margin: 10px;
+}
+
+h2 {
+    font-size: 1.2*$base-font-size;
+    line-height: 1.2;
+    margin: 0;
+}
+
+li {
+    margin: 8px 0;
+}
+
+div.header {
+    padding: $padding;
+}
+
+div.news {
+    float: right;
+    width: $width/4;
+    margin: 0 0 0 $padding;
+    padding: $padding;
+}
+ul {
+    margin: 10px 0;
+    padding: 0;
+}
+li {
+    margin: 0 0 0 20px;
+    padding: 0;
+}
+
+div.section, div.news, div.post, footer, div.header {
+    background: $background-color;
+}
+div.section {
+    overflow: hidden;
+    margin: $padding 0;
+    padding: $padding;
+    border-radius: $padding;
+}
+div.section-left {
+    float: left;
+    width: $left-column-width;
+}
+div.section-right {
+    float: right;
+    width: $width - $left-column-width - 4*$padding;
+}
+div.section-right-first {
+    float: right;
+    width: $width - $left-column-width - 4*$padding - $width/4 - 3*$padding;
+}
+
+div.section-left h2 {
+    margin: 16px 0 0 10px;
+}
+
+div.post {
+    padding: $padding;
+    border-radius: $padding;
+}
