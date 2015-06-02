@@ -1,0 +1,18 @@
+html {
+    color: $text-color;
+    background: $background-color;
+}
+div.section, div.post, div.news {
+    background: #ffffff;
+}
+
+span.d4j {
+    color: green;
+    font-style: italic;
+}
+span.s4j {
+    color: red;
+    text-decoration: line-through;
+    text-decoration-color: red;
+    -webkit-text-decoration-color: red;
+}

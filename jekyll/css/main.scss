@@ -4,24 +4,25 @@
 @charset "utf-8";
 
 // Our variables
-$base-font-family:  Arial, sans-serif;
-$base-font-size:    16px;
+$base-font-family:  "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif;
+$base-font-size:    20px;
 $fixed-font-family: Consolas,Menlo,Monaco,Lucida Console,Liberation Mono,DejaVu Sans Mono,Bitstream Vera Sans Mono,Courier New,monospace,serif;
-$fixed-font-size:   13px;
+$fixed-font-size:   16px;
 // Same as stackoverflow
-$small-font-size:   $base-font-size * 0.75;
-$base-line-height:  1.5;
+$small-font-size:   $base-font-size * 0.6;
+$base-line-height:  1.4;
 $base-font-weight:  400;
 $width:             980px;
 $padding:           20px;
 $left-column-width: 180px;
 
 $text-color:        #111;
-$background-color:  #fffcf0;
+$background-color:  #f4f4d0;
+$section-color:     #fafafa;
 
 // Import partials from `sass_dir` (defaults to `_sass`)
 @import
         "layout",
-        "candy",
+        "color",
         "syntax-highlighting"
 ;
