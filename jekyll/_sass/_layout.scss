@@ -22,8 +22,13 @@ p.post-meta {
 
 h2 {
     line-height: 1.0;
+    text-align: center;
 }
 
+h3 {
+    margin: 0;
+    padding: 5px 0;
+}
 p, li, h2, pre {
     margin: 0;
     padding: $base-font-size/4 0;
@@ -90,6 +95,10 @@ div.section {
 div.section-left {
     float: left;
     width: $left-column-width;
+
+    h2 {
+        text-align: left;
+    }
 }
 div.section-right {
     float: right;
