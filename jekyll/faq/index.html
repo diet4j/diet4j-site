@@ -16,6 +16,17 @@ layout: default
 </div>
 
 <div class="section">
+ <h3>Does diet4j download code at run-time?</h3>
+ <p>Currently, no. diet4j right now is the equivalent of
+    a Perl @INC or C shared library path, but for Java. It's not a package manager, but
+    should nicely interact with one: a package manager could put various modules into
+    <code>/var/lib/java</code>, and all apps using diet4j will pick up the modules they
+    need from there without having to do any additional work.</p>
+ <p>However, dynamic code download could be easily added if people thought diet4j
+    should do that.</p>
+</div>
+
+<div class="section">
  <h3>I have another question, where do I go?</h3>
  <p>If it is a documentation question or a question that could go here, just file an
     <a href="https://github.com/diet4j/diet4j-site/issues/new">issue</a> on Github.</p>
