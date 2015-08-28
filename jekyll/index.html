@@ -103,7 +103,8 @@ isFrontPage: true
   <pre>&gt; git clone https://github.com/diet4j/diet4j.git
 &gt; cd diet4j
 &gt; mvn install
-&gt; sudo cp diet4j-cmdline/bin/diet* /usr/local/bin/</pre>
+&gt; install -m755 diet4j-cmdline/bin/diet* ~/bin/</pre>
+  <p>(This is for Linux)</p>
  </div>
 </div>
 <div class="section">
@@ -116,13 +117,14 @@ isFrontPage: true
 &gt; cd diet4j-examples
 &gt; mvn install</pre>
    <p>Run example 1:</p>
-   <pre>&gt; diet4j diet4j-example-one gimme lots of jars</pre>
+   <pre>&gt; diet4j-dev org.diet4j:diet4j-examples-one some rand/some text</pre>
   <p>This is what happened:</p>
   <ul>
-   <li>diet4j's main program started, and looked for maven module <code>diet4j-example-one</code>
+   <li>diet4j's main program started, and looked for maven module with groupId <code>org.diet4j</code>
+      and artifactId <code>diet4j-examples-one</code>
       in your maven repository at <code>HOME/.m2</code></li>
-   <li>After loading the JAR, diet4j examined the automatically included Maven POM file, and noticed that this module
-       has a dependency: module <code>diet4j-example-utils</code>. So it loaded that, too.</li>
+   <li>After loading the JAR, diet4j examined the contained Maven POM file, and noticed that this module
+       has a dependency: module <code>diet4j-examples-utils</code>. So it loaded that, too.</li>
    <li>diet4j created a <code>ClassLoader</code> for each, and connected them, so that the main module
        can load the classes from the dependency (but not the other way around).</li>
    <li>diet4j then looked for a <code>main()</code> method to run in the main module, and
@@ -146,7 +148,7 @@ isFrontPage: true
    <li>Find and load modules at run-time. That's great for apps that have plug-in's and
        other add-on's that the user can add without needing to restart the app.</li>
    <li>Activate and deactivate modules when they are loaded/unloaded. Try
-       <pre>&gt; diet4j diet4j-examples-activate</pre></li>
+       <pre>&gt; diet4j-dev org.diet4j:diet4j-examples-activate</pre></li>
    <li>Do the same thing for Tomcat web apps. For that, you add
        <code>diet4j-tomcat.jar</code> (which you built earlier in
        <code>diet4j-tomcat/target/diet4j-tomcat-VERSION.jar</code>)
