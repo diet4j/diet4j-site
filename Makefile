@@ -1,8 +1,8 @@
 STAGEDIR = stage
 
-.PHONY: all clean jekyll stage-javadoc pull-javadoc open
+.PHONY: all clean jekyll pull-stage-javadoc open
 
-all: jekyll stage-javadoc
+all: jekyll pull-stage-javadoc
 
 clean:
 	rm -rf $(STAGEDIR)/*
@@ -10,12 +10,12 @@ clean:
 jekyll:
 	jekyll build -s jekyll -d $(STAGEDIR)
 
-stage-javadoc :
-	cp -r javadoc $(STAGEDIR)/
+# First generate javadoc in ../diet4j with mvn javadoc:javadoc
+pull-stage-javadoc:
+	mkdir "$(STAGEDIR)/javadoc"
+	cp -r ../diet4j/target/site/apidocs/* "$(STAGEDIR)/javadoc/"
 
-pull-javadoc:
-	cp -r ../diet4j/target/site/apidocs/* javadoc/
-
+# for me lazy person on a Mac
 open:
 	open -a Firefox http://diet4j.aviatis.com/
 
