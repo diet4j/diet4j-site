@@ -1,0 +1,23 @@
+---
+layout: post
+title:  diet4j version 0.9 is here
+date:   2015-08-28 23:04:48
+author: Johannes Ernst
+categories: hot
+---
+
+diet4j 0.9 has been released. It is a bugfix release:
+
+* Better error messages when invoking diet4j from the command-line incorrectly
+* actually use <code>--directory</code> parameters, instead of always falling back
+  to the default
+
+That's it! Happy dieting!
+
+Cheers,
+
+
+
+Johannes.
+
+
