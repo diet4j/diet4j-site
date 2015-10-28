@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  diet4j version 0.9 is here
+title:  diet4j v0.9 is here
 date:   2015-08-28 23:04:48
 author: Johannes Ernst
 categories: hot
