@@ -1,0 +1,30 @@
+---
+layout: post
+title:  diet4j v0.10 is here
+date:   2015-10-28 13:48:00
+author: Johannes Ernst
+categories: hot
+---
+
+diet4j 0.10 has been released. There's one major enhancement in this release:
+
+* It's now possible to look up Modules just by artifactId without needing to know
+  the groupId as well. This makes it easier to look for functionality of a certain
+  kind, regardless of who developed or forked it, as long as it is in the
+  repository.
+
+In addition:
+
+* More sane exceptions are thrown when looking up a Module that supposedly has only
+  one resolution candidate, but it turns out it has zero or two or more. For that,
+  there's new exception NoModuleResolutionCandidateException.
+
+That's it! Happy dieting!
+
+Cheers,
+
+
+
+Johannes.
+
+
