@@ -117,7 +117,7 @@ isFrontPage: true
 &gt; cd diet4j-examples
 &gt; mvn install</pre>
    <p>Run example 1:</p>
-   <pre>&gt; diet4j-dev org.diet4j:diet4j-examples-one some rand/some text</pre>
+   <pre>&gt; DIET4J_REPO=$HOME/.m2/repository diet4j org.diet4j:diet4j-examples-one some rand/some text</pre>
   <p>This is what happened:</p>
   <ul>
    <li>diet4j's main program started, and looked for maven module with groupId <code>org.diet4j</code>
@@ -148,12 +148,15 @@ isFrontPage: true
    <li>Find and load modules at run-time. That's great for apps that have plug-in's and
        other add-on's that the user can add without needing to restart the app.</li>
    <li>Activate and deactivate modules when they are loaded/unloaded. Try
-       <pre>&gt; diet4j-dev org.diet4j:diet4j-examples-activate</pre></li>
+       <pre>&gt; DIET4J_REPO=$HOME/.m2/repository diet4j org.diet4j:diet4j-examples-activate</pre></li>
    <li>Do the same thing for Tomcat web apps. For that, you add
        <code>diet4j-tomcat.jar</code> (which you built earlier in
        <code>diet4j-tomcat/target/diet4j-tomcat-VERSION.jar</code>)
        to your Tomcat <code>lib</code> directory, restart Tomcat, and add a
        <code>Loader</code> statement to your <code>context.xml</code> file.</li>
+   <li>And if you don't like prefixing your <code>diet4j</code> commands with the
+        environment variable, you can put it into your <code>~/.bashrc</code> or such.
+        By default, diet4j looks for modules in <code>/usr/lib/java</code>.</li>
   </ul>
  </div>
 </div>
