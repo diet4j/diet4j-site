@@ -1,0 +1,27 @@
+---
+layout: post
+title:  diet4j v0.12 is here
+date:   2016-03-23 23:54:00
+author: Johannes Ernst
+categories: hot
+---
+
+diet4j 0.12 has been released. Some major improves were made in this release:
+
+* Support for maven's version ranges of dependent modules.
+
+* diet4j's ClassLoader now knows how to create java.lang.Package instances from
+  the MANIFEST.MF. This allows it to handle recent versions of the MySQL/J
+  connector, which (inexplicably) seem to depend on such.
+
+* diet4j now correctly handles .war files which store their classes inside
+  WEB-INF/classes, not at the root of the archive like .jar files do.
+
+* Better argument parser for the command-line boot loader.
+
+* Better matching of modules in the same version, if multiple versions of the
+  same Module are available.
+
+* Improved error messages in some places.
+
+Happy dieting!
