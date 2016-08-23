@@ -1,0 +1,35 @@
+---
+layout: post
+title:  diet4j v0.14 is here
+date:   2016-08-23 19:54:00
+author: Johannes Ernst
+categories: hot
+---
+
+diet4j 0.13 wasn't a public release, but 0.14 is, and it is available now. Here
+are the major changes since 0.12:
+
+* Using new module ``diet4j-jsvc``, it is now straightforward to create
+  server-side apps consisting of diet4j modules, without using an application server,
+  and using the Apache ``jsvc`` daemon as the main program. An example
+  ``systemd.service`` file is provided.
+
+* Added ``PKGBUILD`` file to make it easier to install and upgrade diet4j on
+  ``pacman``-based Linux platforms, such as
+  <a href="http://archlinux.org/">Arch Linux</a> and
+  <a href="http://ubos.net/">UBOS</a>.
+
+* More clearly distinguish between run-time dependencies and other dependencies
+  in API and implementation; avoid attempting to resolve dependent modules
+  that aren't needed at run-time.
+
+* When a class cannot be found, add to the message of the
+  ``java.lang.ClassNotFoundException`` which diet4j module threw the exception.
+
+* More output options for ``diet4j-status``.
+
+* Better debug-level log messages.
+
+* Various smaller bug fixes.
+
+Happy dieting!

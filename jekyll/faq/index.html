@@ -27,6 +27,25 @@ layout: default
 </div>
 
 <div class="section">
+ <h3>Just how exactly do I run diet4j-based server apps using jsvc?</h3>
+ <p>There's a <code>systemd.service</code> file
+    <a href="https://github.com/diet4j/diet4j/blob/master/diet4j-jsvc/systemd.service.README">in Github</a>,
+    which shows you both how to start and stop the jsvc-based diet4j daemon. To use it
+    with systemd, replace the various <code>FIXME</code> tags with the name of the
+    diet4j root module, the location of the PID file and so forth. To try it out,
+    use <code>diet4j-examples-activate</code> as the root module. Save this file into
+    one of the recognized systemd service file locations on Linux (such as
+    <code>/etc/systemd/system/mytest.service</code>),
+    invoke <code>systemctl daemon-reload</code> to have systemd pick it up, and
+    start your daemon with <code>systemctl start mytest.service</code>. If everything
+    works as it is supposed to, this will log the activation and deactivation in the
+    system log (see <code>journalctl</code>) because that's all that the example
+    module <code>diet4j-example-activate</code> does.</p>
+ <p>If you do not use systemd, use the equivalent of the start and stop commands
+    in your environment.</p>
+</div>
+
+<div class="section">
  <h3>I have another question, where do I go?</h3>
  <p>If it is a documentation question or a question that could go here, just file an
     <a href="https://github.com/diet4j/diet4j-site/issues/new">issue</a> on Github.</p>
